@@ -12,7 +12,8 @@
     "redux": "^3.7.2",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0",
-    "tachyons": "^4.9.0"
+    "tachyons": "^4.9.0",
+    "@snyk/protect": "latest"
   },
   "scripts": {
     "predeploy": "npm run build",
@@ -20,6 +21,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  }
+    "eject": "react-scripts eject",
+    "prepare": "npm run snyk-protect",
+    "snyk-protect": "snyk-protect"
+  },
+  "snyk": true
 }
