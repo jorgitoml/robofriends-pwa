@@ -13,7 +13,7 @@
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0",
     "tachyons": "^4.9.0",
-    "@snyk/protect": "1.1094.0"
+    "@snyk/protect": "latest"
   },
   "scripts": {
     "predeploy": "npm run build",
