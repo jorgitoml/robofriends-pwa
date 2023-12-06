@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "https://aneagoie.github.io/robofriends-pwa",
   "dependencies": {
-    "gh-pages": "^2.0.0",
+    "gh-pages": "^2.2.0",
     "react": "^16.5.0",
     "react-dom": "^16.5.0",
     "react-redux": "^5.1.2",
