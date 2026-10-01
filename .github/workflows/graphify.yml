@@ -1,0 +1,42 @@
+name: Graphify
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: graphify-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out merged code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      - name: Install Graphify
+        run: python -m pip install --disable-pip-version-check graphifyy==0.9.69
+
+      - name: Update knowledge graph
+        run: graphify update .
+
+      - name: Preserve graph output
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: graphify-${{ github.sha }}
+          path: graphify-out/
+          if-no-files-found: ignore
+          retention-days: 14
